@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import { api } from '@/services.js';
+
 export default {
   data() {
     return {
@@ -16,11 +18,9 @@ export default {
   },
   methods: {
     getChats() {
-      fetch('https://reqres.in/api/users?page=2')
-        .then((res) => res.json())
-        .then((res) => {
-          this.chats = res;
-        });
+      api.get('/users?page=2').then((res) => {
+        this.chats = res.data;
+      });
     },
   },
   created() {
