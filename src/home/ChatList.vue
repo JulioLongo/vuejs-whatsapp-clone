@@ -1,6 +1,9 @@
 <template >
-  <section class="chat-container" v-for="chat in chats" :key="chat.index">
-    <div>{{ chat }}</div>
+  <section class="chats-container">
+    <div v-for="chat in chats.data" :key="chat.index" class="chat-container">
+      <img :src="chat.avatar" :alt="chat.first_name" />
+      {{ chat.email }}
+    </div>
   </section>
 </template>
 
@@ -8,11 +11,28 @@
 export default {
   data() {
     return {
-      chats: ['eee', 'ee', 'aa'],
+      chats: [],
     };
+  },
+  methods: {
+    getChats() {
+      fetch('https://reqres.in/api/users?page=2')
+        .then((res) => res.json())
+        .then((res) => {
+          this.chats = res;
+        });
+    },
+  },
+  created() {
+    this.getChats();
   },
 };
 </script>
 
 <style>
+.chat-container {
+  flex: 1;
+  color: brown;
+  flex-direction: row;
+}
 </style>
