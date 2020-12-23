@@ -1,4 +1,4 @@
-<template >
+<template>
   <footer></footer>
 </template>
 

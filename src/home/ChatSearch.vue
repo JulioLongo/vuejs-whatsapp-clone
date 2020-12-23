@@ -1,8 +1,11 @@
 <template>
   <form>
-    <input type="text" name="busca" id="id-search" v-model="busca" />
-    <input type="submit" id="button-search" value="Buscar" @click.prevent="searchChats" />
-    {{ busca }}
+    <div class="search-container">
+      <img src="../assets/search.svg" />
+      <input type="text" name="busca" class="search" v-model="busca" placeholder="Buscar" />
+      <input type="submit" class="search-button" value="Buscar" @click.prevent="searchChats" />
+      {{ busca }}
+    </div>
   </form>
 </template>
 
@@ -15,10 +18,30 @@ export default {
   },
   methods: {
     searchChats() {
-      this.$router.push({ query: { busca: this.busca } });
+      this.$router.push({ query: { page: this.busca } });
     },
   },
 };
 </script>
 
-<style></style>
+<style>
+.search-container {
+  display: flex;
+  width: 340px;
+  background-color: green;
+  background-color: rgb(160, 160, 160);
+  border-radius: 16px;
+  padding: 4px;
+  height: 36px;
+}
+
+.search {
+  border: none;
+  color: #000;
+  background-color: rgb(160, 160, 160);
+}
+
+.search:focus {
+  outline: none;
+}
+</style>

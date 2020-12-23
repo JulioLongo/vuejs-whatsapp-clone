@@ -1,39 +1,65 @@
 <template>
-  <section class="chats-container">
-    <div v-for="chat in chats.data" :key="chat.index" class="chat-item">
-      <img class="avatar" :src="chat.avatar" :alt="chat.first_name" />
-      <div class="name-container">
-        <label>{{ chat.email }}</label>
-        <label> {{ chat.first_name }}</label>
-      </div>
-      <div class="hour-container">
-        <label>20 PM</label>
-        <label> {{ chat.first_name }}</label>
-      </div>
+  <section>
+    <div class="teste">
+      <transition mode="out-in">
+        <ul v-if="chats && chats.data.length" class="chats-container" key="chats">
+          <li class="chat-item" v-for="chat in chats.data" :key="chat.index">
+            <img class="avatar" :src="chat.avatar" :alt="chat.first_name" />
+            <div class="name-container">
+              <label>{{ chat.email }}</label>
+              <label> {{ chat.first_name }}</label>
+            </div>
+            <div class="hour-container">
+              <label>20 PM</label>
+              <label> {{ chat.first_name }}</label>
+            </div>
+          </li>
+        </ul>
+        <div v-else-if="chats && chats.data.length === 0" key="no-results">
+          <p>Sem chats</p>
+        </div>
+        <Loading v-else key="loading" class="teste2"></Loading>
+      </transition>
     </div>
   </section>
 </template>
 
 <script>
+import Loading from '@/components/Loading.vue';
+import serialize from '@/helpers';
 import api from '../services';
 
 export default {
+  components: {
+    Loading,
+  },
   data() {
     return {
-      chats: [],
+      chats: null,
     };
   },
   computed: {
     url() {
-      return this.$route.query;
+      const query = serialize(this.$route.query);
+
+      console.log(query);
+      return `/users?${query}`;
     },
   },
   methods: {
     getChats() {
-      api.get('/users?page=2').then((res) => {
-        this.chats = res.data;
-        console.log(this.chats);
-      });
+      this.chats = null;
+      setTimeout(() => {
+        api.get(this.url).then((res) => {
+          this.chats = res.data;
+          console.log(this.chats);
+        });
+      }, 1500);
+    },
+  },
+  watch: {
+    url() {
+      this.getChats();
     },
   },
   created() {
@@ -43,6 +69,35 @@ export default {
 </script>
 
 <style>
+ul {
+  height: 100%;
+  width: 18%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.teste {
+  display: flex;
+  width: 340px;
+}
+
+.teste2 {
+  flex: 1;
+}
+
 .chats-container {
   display: flex;
   flex-direction: column;
@@ -52,10 +107,23 @@ export default {
 
 .chat-item {
   display: flex;
+  width: 340px;
   flex-direction: row;
   color: black;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-top: 10px;
+  border-top: 1px solid black;
+  padding-top: 10px;
+}
+
+.chat-item:first-child {
+  margin-top: 0;
+  border-top: none;
+  padding-top: 0;
+}
+
+.chats-container > * :hover {
+  cursor: pointer;
 }
 
 .avatar {

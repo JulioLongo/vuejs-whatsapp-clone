@@ -75,4 +75,14 @@ img {
 #main {
   flex: 1;
 }
+
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.3s;
+}
 </style>
