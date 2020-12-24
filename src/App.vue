@@ -1,20 +1,14 @@
 <template>
-  <div id="app">
-    <Header></Header>
-    <main id="main">
-      <router-view />
-    </main>
-
-    <Footer></Footer>
+  <div class="app">
+    <router-view />
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue';
-import Footer from '@/components/Footer.vue';
+// import Header from '@/components/Header.vue';
 
 export default {
-  components: { Header, Footer },
+  // components: { Header },
 };
 </script>
 
@@ -29,7 +23,6 @@ li,
 h1,
 h2,
 p {
-  padding: 0px;
   margin: 0px;
 }
 
@@ -66,14 +59,9 @@ img {
   transform: scale(1.1);
 }
 
-#app {
+.app {
   display: flex;
   min-height: 100vh;
-  flex-direction: column;
-}
-
-#main {
-  flex: 1;
 }
 
 .v-enter,
