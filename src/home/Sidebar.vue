@@ -23,9 +23,13 @@
     </div>
 
     <transition mode="out-in">
-      <div v-if="chats && chats.data.length">
-        <div class="chats-container" v-for="(item, index) in chats.data" :key="`item-${index}`">
-          <ChatListItem :chatItem="item"></ChatListItem>
+      <div v-if="chats && chats.data.length" class="chatlist">
+        <div v-for="(item, index) in chats.data" :key="`item-${index}`">
+          <ChatListItem
+            :chatItem="item"
+            :active="this.$store.state.chatId.index == index ? 'active' : ''"
+            v-on:click="this.selectChat(item, index)"
+          ></ChatListItem>
         </div>
       </div>
       <div v-else-if="chats && chats.data.length === 0" key="no-results">
@@ -67,9 +71,16 @@ export default {
       setTimeout(() => {
         api.get(this.url).then((res) => {
           this.chats = res.data;
+
           console.log(this.chats);
         });
       }, 1500);
+    },
+    selectChat(item, index) {
+      console.log(index);
+      this.$store.commit('selectChatId', { item, index });
+
+      console.log(this.$store.state.chatId); // -> 1
     },
   },
   created() {
@@ -144,8 +155,19 @@ header {
   margin-left: 10px;
 }
 
-.chats-container {
+.chatlist {
   flex: 1;
   background-color: #fff;
+  overflow-y: auto;
 }
+
+.chatlist::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.chatlist::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/*  */
 </style>

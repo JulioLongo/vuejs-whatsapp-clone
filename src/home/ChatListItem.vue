@@ -1,10 +1,10 @@
 <template>
-  <div class="chat-list-item">
+  <div :class="'chat-list-item' + ' ' + active">
     <img className="chat-list-item-avatar" :src="chatItem.avatar" alt="" />
     <div className="chat-list-item-lines">
       <div className="chat-list-item-line">
         <div className="chat-list-item-name">{{ chatItem.first_name }}</div>
-        <div className="chat-list-item-date">18:30</div>
+        <div className="chat-list-item-date">{{ this.$store.state.chatId.index }}</div>
       </div>
       <div className="chat-list-item-line">
         <div className="chat-list-item-lastMsg">
@@ -20,7 +20,7 @@
 <script>
 export default {
   name: 'ChatListItem',
-  props: ['chatItem'],
+  props: ['chatItem', 'active'],
 };
 </script>
 
@@ -31,12 +31,15 @@ export default {
   align-items: center;
   height: 70px;
 }
+
 .chat-list-item:hover {
   background-color: #f5f5f5;
 }
+
 .chat-list-item.active {
   background-color: #ebebeb;
 }
+
 .chat-list-item-avatar {
   width: 50px;
   height: 50px;

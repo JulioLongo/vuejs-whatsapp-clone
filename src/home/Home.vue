@@ -5,13 +5,14 @@
 
 <script>
 import Sidebar from '@/home/Sidebar.vue';
-// import ChatSearch from '@/home/ChatSearch.vue';
+import ContentArea from '@/home/ContentArea.vue';
 // import Chat from '@/home/Chat.vue';
 
 export default {
   name: 'Home',
   components: {
     Sidebar,
+    ContentArea,
     // ChatSearch,
     // Chat,
   },
