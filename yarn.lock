@@ -2800,7 +2800,7 @@ core-js-compat@^3.6.5, core-js-compat@^3.8.0:
     browserslist "^4.15.0"
     semver "7.0.0"
 
-core-js@^3.6.5:
+core-js@^3.6.4, core-js@^3.6.5:
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.8.1.tgz#f51523668ac8a294d1285c3b9db44025fda66d47"
   integrity sha512-9Id2xHY1W7m8hCl8NkhQn5CufmF/WuR30BTRewvCXc1aZd3kMECwNZ69ndLbekKfakw9Rf2Xyc+QR6E7Gg+obg==
@@ -8489,6 +8489,14 @@ uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
+v-emoji-picker@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/v-emoji-picker/-/v-emoji-picker-2.3.1.tgz#0eb4123b0a70311e1533796743f64d6cbc1023b1"
+  integrity sha512-KpFum53KelwRunQhB8c5Jj83YCGWDnBBrFaIHg0NJN0WCGTxSiVjPh+GyrHxssvLB9wvo+1YLKzal+iuJ+08eA==
+  dependencies:
+    vue-class-component "^7.2.6"
+    vue-property-decorator "^9.0.2"
+
 v8-compile-cache@^2.0.3:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.2.0.tgz#9471efa3ef9128d2f7c6a7ca39c4dd6b5055b132"
@@ -8525,6 +8533,18 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
+
+vue-chat-emoji@^1.1.27:
+  version "1.1.27"
+  resolved "https://registry.yarnpkg.com/vue-chat-emoji/-/vue-chat-emoji-1.1.27.tgz#67f7681f1248f1fd55965cbfc02a26568b15e5b5"
+  integrity sha512-we+PH4yJr71ZWnUkKnk2XMjhErL3c5s25EKQTvtQyWVw6z2gGJRRlFQdaTR5+9u4fD9njOMewnczqCbrkyoFsg==
+  dependencies:
+    core-js "^3.6.4"
+
+vue-class-component@^7.2.6:
+  version "7.2.6"
+  resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-7.2.6.tgz#8471e037b8e4762f5a464686e19e5afc708502e4"
+  integrity sha512-+eaQXVrAm/LldalI272PpDe3+i4mPis0ORiMYxF6Ae4hyuCh15W8Idet7wPUEs4N4YptgFHGys4UrgNQOMyO6w==
 
 vue-eslint-parser@^7.3.0:
   version "7.3.0"
@@ -8563,10 +8583,10 @@ vue-loader@^15.9.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-material-design-icons@^4.11.0:
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/vue-material-design-icons/-/vue-material-design-icons-4.11.0.tgz#11356194846a5806d958ede531291605cc314b33"
-  integrity sha512-3Tyeqi9jtONQ/x8WkJqiBs4t5Bd5O1t7RdM/GIPKVYoVdaRy0oy3nbRjnMGyONBlqC/NpPjzhWeoZWUMEI04nA==
+vue-property-decorator@^9.0.2:
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/vue-property-decorator/-/vue-property-decorator-9.1.2.tgz#266a2eac61ba6527e2e68a6933cfb98fddab5457"
+  integrity sha512-xYA8MkZynPBGd/w5QFJ2d/NM0z/YeegMqYTphy7NJQXbZcuU6FC6AOdUAcy4SXP+YnkerC6AfH+ldg7PDk9ESQ==
 
 vue-router@^4.0.0-0:
   version "4.0.1"

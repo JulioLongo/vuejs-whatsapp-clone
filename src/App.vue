@@ -33,6 +33,7 @@ ul {
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: #41b883;
+  background-color: #eeedef;
   background: url('./assets/pattern.svg') repeat top;
 }
 
@@ -62,6 +63,7 @@ img {
 .app {
   display: flex;
   height: 100vh;
+  background-color: #eeedef;
 }
 
 .v-enter,

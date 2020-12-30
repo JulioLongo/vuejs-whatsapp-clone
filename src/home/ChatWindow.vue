@@ -8,13 +8,13 @@
 
       <div class="chat-window-header-buttons">
         <div class="chat-window-btn">
-          <paperclip class="icon"></paperclip>
+          <paperclip class="chat-icon"></paperclip>
         </div>
         <div class="chat-window-btn">
-          <dots-vertical class="icon"></dots-vertical>
+          <dots-vertical class="chat-icon"></dots-vertical>
         </div>
         <div class="chat-window-btn">
-          <magnify class="icon"></magnify>
+          <magnify class="chat-icon"></magnify>
         </div>
       </div>
     </div>
@@ -24,18 +24,26 @@
     <div class="chat-window-footer">
       <div class="chat-window-pre">
         <div class="chat-window-btn">
-          <emoticon-happy-outline class="icon"></emoticon-happy-outline>
-          <close class="icon"></close>
+          <Emoji />
+          <close class="chat-icon"></close>
+        </div>
+
+        <div class="chat-window-btn">
+          <emoticon-happy-outline class="chat-icon"></emoticon-happy-outline>
         </div>
       </div>
 
       <div class="chat-window-inputarea">
-        <input class="chat-window-input" />
+        <input class="chat-window-input" type="text" placeholder="Digite uma mensagem" />
       </div>
 
       <div class="chat-window-pos">
-        <send class="icon"></send>
-        <microphone class="icon"></microphone>
+        <div class="chat-window-btn">
+          <send class="chat-icon"></send>
+        </div>
+        <div class="chat-window-btn">
+          <microphone class="chat-icon"></microphone>
+        </div>
       </div>
     </div>
   </div>
@@ -132,6 +140,7 @@ export default {
 
 .chat-window-pre {
   display: flex;
+  margin: 0 15px;
 }
 
 .chat-window-inputarea {
@@ -152,9 +161,11 @@ export default {
 
 .chat-window-pos {
   display: flex;
+  margin: 0 15px;
 }
 
-.icon {
+.chat-icon {
+  font-size: 24px;
   color: #919191;
 }
 </style>
